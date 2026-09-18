@@ -1,34 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài 1: Học HTML</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jackson Electronics - Registration Form</title>
+  <style>
+    body {
+      background-color: #000000;
+      font-family: "Times New Roman", Times, serif;
+      color: #000000;
+      margin: 0;
+      padding: 30px 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    table.outer-frame {
+      width: 580px;
+      border-collapse: collapse;
+      background-color: #8bbffc;
+      border: 3px solid #ffffff;
+    }
+
+    .inner-padding {
+      padding: 20px 25px 25px 25px;
+    }
+
+    .banner-box {
+      width: 250px;
+      height: 50px;
+      background-color: #1be3e3;
+      border: 2px solid #000000;
+      border-radius: 10px;
+      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+      margin: 0 auto 18px auto;
+      overflow: hidden;
+    }
+
+    .banner-table {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    .banner-top {
+      height: 23px;
+      vertical-align: bottom;
+      font-size: 20px;
+      font-weight: bold;
+      padding-bottom: 1px;
+    }
+
+    .banner-divider {
+      height: 2px;
+      background-color: #000000;
+    }
+
+    .banner-bottom {
+      height: 23px;
+      vertical-align: top;
+      font-size: 20px;
+      font-weight: bold;
+      padding-top: 1px;
+    }
+
+    .form-title {
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .form-subtitle {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table.form-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table.form-table td {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      vertical-align: middle;
+      font-size: 14px;
+    }
+
+    .label-col {
+      width: 165px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 14px;
+      border: 1px solid #7f9db9;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 1px 3px;
+    }
+
+    input[type="text"] {
+      height: 21px;
+    }
+
+    select {
+      height: 22px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 90px;
+      resize: none;
+    }
+
+    table.inline-table {
+      border-collapse: collapse;
+    }
+
+    table.inline-table td {
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .section-hr-td {
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+
+    hr.section-hr {
+      border: 0;
+      border-top: 1px solid #000000;
+      height: 0;
+      margin: 0;
+    }
+
+    .button-container-cell {
+      padding-top: 10px !important;
+      text-align: left;
+    }
+
+    .buttons-offset-wrapper {
+      margin-left: -55px;
+    }
+
+    .retro-btn {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      background-color: #ffffff;
+      border: 1px solid #707070;
+      border-radius: 2px;
+      padding: 2px 8px;
+      margin-right: 6px;
+      cursor: pointer;
+      box-shadow: inset 1px 1px 0px #ffffff, inset -1px -1px 0px #e0e0e0;
+    }
+
+    .retro-btn:active {
+      background-color: #ece9d8;
+    }
+
+    label {
+      cursor: pointer;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+
+    input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #000000;
+      border-radius: 50%;
+      background-color: #ffffff;
+      outline: none;
+      margin: 0 5px 0 0;
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      vertical-align: middle;
+    }
+
+    input[type="radio"]:checked {
+      border-color: #008000;
+    }
+
+    input[type="radio"]:checked::after {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #008000;
+      display: block;
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 13px;
+      height: 13px;
+      border: 1.5px solid #000000;
+      background-color: #ffffff;
+      outline: none;
+      margin: 0 5px 0 0;
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    input[type="checkbox"]:checked {
+      border-color: #008000;
+    }
+
+    input[type="checkbox"]:checked::after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 3px;
+      width: 3px;
+      height: 6px;
+      border: solid #008000;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Bài 1: Học HTML</h1>
+  <table class="outer-frame">
+    <tr>
+      <td class="inner-padding">
 
-    <h2>Ví dụ 1: Công thức tính diện tích</h2>
-    <p>1. <b> Diện tích hình vuông :</b> S = a<sup>2</sup></p>
-    <p>2. <b> Diện tích hình tròn :</b> S = 3.14 * r<sup>2</sup></p>
-    <p>3. <b> Diện tích khối lập phương :</b> V = a<sup>3</sup></p>
+        <div class="banner-box">
+          <table class="banner-table">
+            <tr>
+              <td class="banner-top">Jackson</td>
+            </tr>
+            <tr>
+              <td class="banner-divider"></td>
+            </tr>
+            <tr>
+              <td class="banner-bottom">Electronics</td>
+            </tr>
+          </table>
+        </div>
 
-    <h2>Ví dụ 2: 7 hằng đẳng thức đáng nhớ!</h2>
-    <p>1. <b>(a+b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></b></p>
-    <p>2. <b>(a-b)<sup>2</sup> = a<sup>2</sup> - 2ab + b<sup>2</sup></b></p>
-    <p>3. <b>a<sup>2</sup> - b<sup>2</sup> = (a-b) * (a+b)</b></p>
-    <p>4. <b>(a+b)<sup>3</sup> = a<sup>3</sup> + 3a<sup>2</sup>b + 3ab<sup>2</sup> + b<sup>3</sup></b></p>
-    <p>5. <b>(a-b)<sup>3</sup> = a<sup>3</sup> - 3a<sup>2</sup>b + 3ab<sup>2</sup> - b<sup>3</sup></b></p>
-    <p>6. <b>a<sup>3</sup> + b<sup>3</sup> = (a+b) * (a<sup>2</sup> -ab + b<sup>2</sup>)</b></p>
-    <p>7. <b>a<sup>3</sup> - b<sup>3</sup> = (a-b) * (a<sup>2</sup> +ab + b<sup>2</sup>)</b></p>
+        <div class="form-title">Registration Form</div>
+        <div class="form-subtitle">Register your Jackson Electronics product here</div>
 
-    <h2>Ví dụ 3: Chèn ảnh</h2>
-    <p>Mô tả: Chèn ảnh sau vào web, khi click vào sẽ mở trong tab mới và link sang trang https://28tech.com.vn/</p>
-    
-    <a href="https://28tech.com.vn/" target="_blank">
-        <img alt="28Tech" src="https://cdn-main.28tech.com.vn/media/anh-khoa-hoc/front-end.png" width="500px">
-    </a>
+        <form id="registrationForm" action="#" method="post">
+          <table class="form-table">
+            
+            <tr>
+              <td class="label-col">First Name:</td>
+              <td>
+                <table class="inline-table">
+                  <tr>
+                    <td><input type="text" style="width: 105px;"></td>
+                    <td style="padding-left: 3px; padding-right: 2px; white-space: nowrap;">Last Name:</td>
+                    <td><input type="text" style="width: 105px;"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Address #1:</td>
+              <td><input type="text" style="width: 195px;"></td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Address #2:</td>
+              <td><input type="text" style="width: 195px;"></td>
+            </tr>
+
+            <tr>
+              <td class="label-col">City:</td>
+              <td>
+                <table class="inline-table">
+                  <tr>
+                    <td><input type="text" style="width: 135px;"></td>
+                    <td style="padding-left: 3px; padding-right: 2px; white-space: nowrap;">State:</td>
+                    <td><input type="text" style="width: 32px;"></td>
+                    <td style="padding-left: 3px; padding-right: 2px; white-space: nowrap;">Zip:</td>
+                    <td><input type="text" style="width: 65px;"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Country:</td>
+              <td><input type="text" value="United States" style="width: 135px;"></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="section-hr-td">
+                <hr class="section-hr">
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Product:</td>
+              <td>
+                <select style="width: 110px;">
+                  <option value="ScanMaster" selected>ScanMaster</option>
+                  <option value="PrinterPro">PrinterPro</option>
+                  <option value="AudioMax">AudioMax</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Date Purchased:</td>
+              <td><input type="text" style="width: 135px;"></td>
+            </tr>
+
+            <tr>
+              <td class="label-col">Serial #:</td>
+              <td><input type="text" style="width: 135px;"></td>
+            </tr>
+
+            <tr>
+              <td class="label-col" style="vertical-align: top; padding-top: 4px;">Used for:</td>
+              <td>
+                <table class="inline-table">
+                  <tr>
+                    <td style="width: 130px; vertical-align: top;">
+                      <label><input type="radio" name="used_for" value="Home"> Home</label><br>
+                      <label><input type="radio" name="used_for" value="Business" checked> Business</label><br>
+                      <label><input type="radio" name="used_for" value="Government"> Government</label>
+                    </td>
+                    <td style="vertical-align: top;">
+                      <label><input type="radio" name="used_for" value="Educational Institution"> Educational Institution</label><br>
+                      <label><input type="radio" name="used_for" value="Other"> Other</label>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col" style="vertical-align: top; padding-top: 4px;">System (check all that apply):</td>
+              <td>
+                <table class="inline-table">
+                  <tr>
+                    <td style="width: 130px; vertical-align: top;">
+                      <label><input type="checkbox" name="system" value="Windows"> Windows</label><br>
+                      <label><input type="checkbox" name="system" value="Macintosh"> Macintosh</label>
+                    </td>
+                    <td style="vertical-align: top;">
+                      <label><input type="checkbox" name="system" value="UNIX"> UNIX</label><br>
+                      <label><input type="checkbox" name="system" value="Other"> Other</label>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="section-hr-td">
+                <hr class="section-hr">
+              </td>
+            </tr>
+
+            <tr>
+              <td class="label-col" style="vertical-align: top; padding-top: 4px;">Comments?:</td>
+              <td>
+                <textarea name="comments"></textarea>
+              </td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td class="button-container-cell">
+                <div class="buttons-offset-wrapper">
+                  <input type="submit" value="Click to register" class="retro-btn">
+                  <input type="reset" value="Click to cancel" class="retro-btn">
+                </div>
+              </td>
+            </tr>
+
+          </table>
+        </form>
+
+      </td>
+    </tr>
+  </table>
 
 </body>
 </html>
