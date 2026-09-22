@@ -1,332 +1,530 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackson Electronics - Registration Form</title>
-  <style>
-    body {
-      background-color: #000000;
-      font-family: "Times New Roman", Times, serif;
-      color: #000000;
-      margin: 0;
-      padding-top: 30px;
-      padding-bottom: 30px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAMPLE CAFE MENU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
 
-    table.outer-frame {
-      width: 580px;
-      border-collapse: collapse;
-      background-color: #8bbffc;
-      border: 3px solid #ffffff;
-      margin: 0 auto;
-    }
+        body {
+            background-color: #ffffff;
+            color: #333;
+        }
 
-    .inner-padding {
-      padding: 20px 25px 25px 25px;
-    }
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            border: 1px solid #a94442;
+            background-color: #fff;
+        }
 
-    .banner-box {
-      width: 250px;
-      height: 50px;
-      background-color: #1be3e3;
-      border: 2px solid #000000;
-      border-radius: 10px;
-      box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
-      margin: 0 auto 18px auto;
-      overflow: hidden;
-    }
+        header {
+            text-align: center;
+            padding: 15px 0 10px 0;
+            background-color: #ffffff;
+        }
 
-    .banner-table {
-      width: 100%;
-      height: 100%;
-      border-collapse: collapse;
-      text-align: center;
-    }
+        .header-title-wrapper {
+            position: relative;
+            display: inline-block;
+        }
 
-    .banner-top {
-      height: 23px;
-      vertical-align: bottom;
-      font-size: 20px;
-      font-weight: bold;
-      padding-bottom: 1px;
-    }
+        .header-title-shadow {
+            font-style: italic;
+            font-weight: bold;
+            color: #f7cece;
+            font-size: 32px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            white-space: nowrap;
+            z-index: 1;
+        }
 
-    .banner-divider {
-      height: 2px;
-      background-color: #000000;
-    }
+        .header-title-main {
+            font-style: italic;
+            font-weight: bold;
+            color: #800000;
+            font-size: 32px;
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+        }
 
-    .banner-bottom {
-      height: 23px;
-      vertical-align: top;
-      font-size: 20px;
-      font-weight: bold;
-      padding-top: 1px;
-    }
+        nav {
+            background-color: #e88d8d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            padding: 0;
+        }
 
-    .form-title {
-      font-size: 22px;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 6px;
-    }
+        .nav-home-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 15px;
+            border-right: 2px solid #5b2c83;
+            height: 65%;
+            color: #5b2c83;
+            text-decoration: none;
+        }
 
-    .form-subtitle {
-      font-size: 14px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+        .nav-home-icon img {
+            height: 20px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
 
-    table.form-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
 
-    table.form-table td {
-      padding-top: 2px;
-      padding-bottom: 2px;
-      vertical-align: middle;
-      font-size: 14px;
-    }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            padding: 0 20px;
+            border-right: 2px solid #5b2c83;
+            height: 65%;
+            display: flex;
+            align-items: center;
+        }
 
-    .label-col {
-      width: 165px;
-      text-align: left;
-      white-space: nowrap;
-    }
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding-left: 15px;
+            height: 100%;
+        }
 
-    input[type="text"],
-    select,
-    textarea {
-      font-family: "Times New Roman", Times, serif;
-      font-size: 14px;
-      border: 1px solid #7f9db9;
-      background-color: #ffffff;
-      box-sizing: border-box;
-      margin: 0;
-      padding: 1px 3px;
-    }
+        .search-box input[type="text"] {
+            padding: 2px 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            width: 120px;
+            height: 22px;
+            background-color: #fff;
+        }
 
-    input[type="text"] {
-      height: 21px;
-    }
+        .search-box button {
+            height: 22px;
+            padding: 0 8px;
+            background-color: #efefef;
+            border: 1px solid #767676;
+            cursor: pointer;
+            font-size: 11px;
+        }
 
-    select {
-      height: 22px;
-    }
+        .main-content {
+            display: flex;
+            width: 100%;
+            align-items: flex-start;
+            padding-bottom: 0;
+        }
 
-    textarea {
-      width: 100%;
-      height: 90px;
-      resize: none;
-    }
+        .left-sidebar {
+            width: 160px;
+            padding: 8px 8px 12px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex-shrink: 0;
+            border-right: 1px solid #a94442;
+        }
 
-    input[type="radio"],
-    input[type="checkbox"] {
-      accent-color: #008000;
-      vertical-align: middle;
-      cursor: pointer;
-    }
+        .menu-btn {
+            width: 100%;
+            background-color: #e88d8d;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            padding: 6px 10px;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            text-align: left;
+            transition: opacity 0.2s;
+        }
 
-    table.inline-table {
-      border-collapse: collapse;
-    }
+        .menu-btn:hover {
+            opacity: 0.9;
+        }
 
-    table.inline-table td {
-      padding: 0;
-      font-size: 14px;
-    }
+        .circle-img-container {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
 
-    .section-hr-td {
-      padding-top: 10px !important;
-      padding-bottom: 10px !important;
-    }
+        .circle-img-container img {
+            width: 100%;
+            max-width: 155px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(232, 141, 141, 0.6);
+            margin-left: 0;
+        }
 
-    hr.section-hr {
-      border: 0;
-      border-top: 1px solid #000000;
-      height: 0;
-      margin: 0;
-    }
+        .content-center {
+            flex: 1;
+            padding: 10px 15px 15px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-    .retro-btn {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 12px;
-      background-color: #ffffff;
-      border: 1px solid #707070;
-      border-radius: 2px;
-      padding: 2px 8px;
-      margin-right: 6px;
-      cursor: pointer;
-    }
+        .section-header {
+            background-color: #e88d8d;
+            color: #800000;
+            padding: 3px 0;
+            font-weight: bold;
+            font-size: 17px;
+            letter-spacing: 6px;
+            margin-bottom: 8px;
+            margin-top: 5px;
+            width: 65%;
+            align-self: center;
+        }
 
-    label {
-      cursor: pointer;
-      font-size: 14px;
-    }
-  </style>
+        .section-header.text-left {
+            text-align: left;
+            padding-left: 15px;
+        }
+
+        .section-header.text-center {
+            text-align: center;
+        }
+
+        .food-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 4px;
+            align-self: flex-start;
+        }
+
+        .food-list li {
+            font-size: 12px;
+            margin-bottom: 2px;
+            color: #333;
+        }
+
+        .food-list li.orange-item {
+            color: #333;
+        }
+
+        .food-list li.orange-item .text-orange {
+            color: #d9531e;
+            font-weight: bold;
+        }
+
+        .food-list li span.highlight {
+            color: #cc0000;
+            font-weight: bold;
+        }
+
+        .food-list li span.highlight u {
+            text-decoration: underline;
+        }
+
+        .back-to-top {
+            color: #cc0000;
+            font-size: 11px;
+            font-weight: bold;
+            text-decoration: underline;
+            display: block;
+            margin-bottom: 10px;
+            align-self: flex-start;
+            cursor: pointer;
+        }
+
+        .info-form {
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group input[type="text"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 4px 6px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            outline: none;
+            font-size: 12px;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 100%;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 55px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .button-group button {
+            padding: 3px 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #767676;
+            border-radius: 3px;
+            font-size: 12px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .right-sidebar-wrapper {
+            padding-top: 0;
+            padding-right: 0;
+            padding-left: 0;
+            flex-shrink: 0;
+            border-left: 1px solid #e88d8d;
+        }
+
+        .right-sidebar {
+            width: 230px;
+            background-color: #000000;
+            color: #ffffff;
+            padding: 0 12px 15px 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .right-sidebar h2 {
+            font-size: 26px;
+            margin-top: 0;
+            margin-bottom: 8px;
+            padding-top: 0;
+            padding-left: 2px;
+            line-height: 1;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            color: #ffffff;
+        }
+
+        .event-item {
+            margin-bottom: 12px;
+            padding-left: 12px;
+        }
+
+        .event-item h3 {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #ffffff;
+        }
+
+        .event-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 5px;
+        }
+
+        .event-item p {
+            font-size: 11px;
+            line-height: 1.3;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .event-item p a {
+            color: #ff5555;
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #e88d8d;
+            text-align: center;
+            padding: 8px 0;
+            width: 100%;
+            border-top: 1px solid #a94442;
+        }
+
+        footer h2 {
+            color: #ffffff;
+            font-style: italic;
+            font-size: 17px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-  <table class="outer-frame">
-    <tr>
-      <td class="inner-padding">
+<div class="container">
+    <header>
+        <div class="header-title-wrapper">
+            <div class="header-title-shadow">EXAMPLE CAFE MENU</div>
+            <div class="header-title-main">EXAMPLE CAFE MENU</div>
+        </div>
+    </header>
 
-        <div class="banner-box">
-          <table class="banner-table">
-            <tr>
-              <td class="banner-top">Jackson</td>
-            </tr>
-            <tr>
-              <td class="banner-divider"></td>
-            </tr>
-            <tr>
-              <td class="banner-bottom">Electronics</td>
-            </tr>
-          </table>
+    <nav>
+        <a href="#" class="nav-home-icon">
+            <img src="icons8-home-50.png" alt="Home">
+        </a>
+        <div class="nav-links">
+            <a href="#starter">STARTER</a>
+            <a href="#main">MAIN COURSES</a>
+            <a href="#desserts">DESSERTS</a>
+        </div>
+        <div class="search-box">
+            <input type="text">
+            <button>Go</button>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="left-sidebar">
+            <button class="menu-btn">Cafe Latte</button>
+            <button class="menu-btn">Capuchino</button>
+            <button class="menu-btn">Ocean Blue</button>
+            <button class="menu-btn">Ice-cream Cafe</button>
+            <button class="menu-btn">Order Online</button>
+
+            <div class="circle-img-container">
+                <img src="company.png" alt="Company Image">
+            </div>
         </div>
 
-        <div class="form-title">Registration Form</div>
-        <div class="form-subtitle">Register your Jackson Electronics product here</div>
+        <div class="content-center">
+            <div id="starter" class="section-header text-left">S t a r t e r</div>
+            <ul class="food-list">
+                <li>Chesnut and Mushroom Goujons <span class="highlight">(<u>v</u>)</span></li>
+                <li>Goat Cheese<span class="highlight">(<u>v</u>)</span></li>
+                <li class="orange-item"><span class="text-orange">HONEY SOY CHICKEN KEBABS</span><span class="highlight">(<u>V</u>)</span></li>
+                <li>Seafood Salad<span class="highlight">(<u>v</u>)</span></li>
+            </ul>
+            <a href="#" class="back-to-top">Back to Top</a>
 
-        <form id="registrationForm" action="#" method="post">
-          <table class="form-table">
-            
-            <tr>
-              <td class="label-col">First Name:</td>
-              <td>
-                <table class="inline-table">
-                  <tr>
-                    <td><input type="text" style="width: 105px;"></td>
-                    <td style="padding-left: 3px; padding-right: 2px; white-space: nowrap;">Last Name:</td>
-                    <td><input type="text" style="width: 105px;"></td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+            <div id="desserts" class="section-header text-left">D e s s e r t s</div>
+            <ul class="food-list">
+                <li>Lemon Sorbet <span class="highlight">(<u>v</u>)</span></li>
+                <li>Chocolate Mud Pie<span class="highlight">(<u>v</u>)</span></li>
+                <li>Pecan Pie<span class="highlight">(<u>v</u>)</span></li>
+                <li>Selection of fine Cheeses from Around the World<span class="highlight">(<u>v</u>)</span></li>
+            </ul>
+            <a href="#" class="back-to-top">Back to Top</a>
 
-            <tr>
-              <td class="label-col">Address #1:</td>
-              <td><input type="text" style="width: 195px;"></td>
-            </tr>
+            <div class="section-header text-center">I N F O R M A T I O N</div>
+            <form class="info-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Last Name">
+                    </div>
+                </div>
 
-            <tr>
-              <td class="label-col">Address #2:</td>
-              <td><input type="text" style="width: 195px;"></td>
-            </tr>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Telephone">
+                    </div>
+                </div>
 
-            <tr>
-              <td class="label-col">City:</td>
-              <td>
-                <table class="inline-table">
-                  <tr>
-                    <td><input type="text" style="width: 135px;"></td>
-                    <td style="padding-left: 3px; padding-right: 2px; white-space: nowrap;">State:</td>
-                    <td><input type="text" style="width: 32px;"></td>
-                    <td style="padding-left: 3px; padding-right: 2px; white-space: nowrap;">Zip:</td>
-                    <td><input type="text" style="width: 65px;"></td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+                <div class="form-row">
+                    <div class="form-group">
+                        <select>
+                            <option>USA</option>
+                            <option>Vietnam</option>
+                            <option>UK</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="radio-group">
+                            <label><input type="radio" name="nationality"> Vietnamese</label>
+                            <label><input type="radio" name="nationality"> Foreigner</label>
+                        </div>
+                    </div>
+                </div>
 
-            <tr>
-              <td class="label-col">Country:</td>
-              <td><input type="text" value="United States" style="width: 135px;"></td>
-            </tr>
+                <div class="form-row">
+                    <div class="form-group" style="width: 100%;">
+                        <textarea placeholder="Comment"></textarea>
+                    </div>
+                </div>
 
-            <tr>
-              <td colspan="2" class="section-hr-td">
-                <hr class="section-hr">
-              </td>
-            </tr>
+                <div class="button-group">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Cacel</button>
+                </div>
+            </form>
+        </div>
 
-            <tr>
-              <td class="label-col">Product:</td>
-              <td>
-                <select style="width: 110px;">
-                  <option value="ScanMaster" selected>ScanMaster</option>
-                  <option value="hihi">hihi</option>
-                  <option value="haha">haha</option>
-                  <option value="huhu">huhu</option>
-                </select>
-              </td>
-            </tr>
+        <div class="right-sidebar-wrapper">
+            <div class="right-sidebar">
+                <h2>Events</h2>
 
-            <tr>
-              <td class="label-col">Date Purchased:</td>
-              <td><input type="text" style="width: 135px;"></td>
-            </tr>
+                <div class="event-item">
+                    <h3>Regular Meetings</h3>
+                    <img src="meeting.png" alt="Regular Meetings">
+                    <p>Host your regular team meetings or activities in the comfort of your own private room. <a href="#">Read more...</a></p>
+                </div>
 
-            <tr>
-              <td class="label-col">Serial #:</td>
-              <td><input type="text" style="width: 135px;"></td>
-            </tr>
+                <div class="event-item">
+                    <h3>Product Launches</h3>
+                    <img src="launch.png" alt="Product Launches">
+                    <p>Launch your product with ease in a space that truly fits its image.<a href="#">Read more...</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <tr>
-              <td class="label-col" style="vertical-align: top; padding-top: 4px;">Used for:</td>
-              <td>
-                <table class="inline-table">
-                  <tr>
-                    <td style="width: 130px; vertical-align: top;">
-                      <label><input type="radio" name="used_for" value="Home"> Home</label><br>
-                      <label><input type="radio" name="used_for" value="Business" checked> Business</label><br>
-                      <label><input type="radio" name="used_for" value="Government"> Government</label>
-                    </td>
-                    <td style="vertical-align: top;">
-                      <label><input type="radio" name="used_for" value="Educational Institution"> Educational Institution</label><br>
-                      <label><input type="radio" name="used_for" value="Other"> Other</label>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <tr>
-              <td class="label-col" style="vertical-align: top; padding-top: 4px;">System (check all that apply):</td>
-              <td>
-                <table class="inline-table">
-                  <tr>
-                    <td style="width: 130px; vertical-align: top;">
-                      <label><input type="checkbox" name="system" value="Windows"> Windows</label><br>
-                      <label><input type="checkbox" name="system" value="Macintosh"> Macintosh</label>
-                    </td>
-                    <td style="vertical-align: top;">
-                      <label><input type="checkbox" name="system" value="UNIX"> UNIX</label><br>
-                      <label><input type="checkbox" name="system" value="Other"> Other</label>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <tr>
-              <td colspan="2" class="section-hr-td">
-                <hr class="section-hr">
-              </td>
-            </tr>
-
-            <tr>
-              <td class="label-col" style="vertical-align: top; padding-top: 4px;">Comments?:</td>
-              <td>
-                <textarea name="comments"></textarea>
-              </td>
-            </tr>
-
-            <tr>
-              <td colspan="2" style="text-align: center; padding-top: 15px;">
-                <input type="submit" value="Click to register" class="retro-btn">
-                <input type="reset" value="Click to cancel" class="retro-btn">
-              </td>
-            </tr>
-
-          </table>
-        </form>
-
-      </td>
-    </tr>
-  </table>
+    <footer>
+        <h2>ABC Company <sup>©</sup> - 12345678 - abccoffee@gmail.com</h2>
+    </footer>
+</div>
 
 </body>
 </html>
