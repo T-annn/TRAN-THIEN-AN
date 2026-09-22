@@ -67,20 +67,9 @@
             border-collapse: collapse;
         }
 
-        .nav-home-cell {
-            width: 50px;
-            text-align: center;
-            border-right: 2px solid #5b2c83;
-        }
-
-        .nav-home-cell img {
-            height: 20px;
-            width: auto;
-            vertical-align: middle;
-        }
-
         .nav-links-cell {
-            text-align: left;
+            text-align: center;
+            vertical-align: middle;
         }
 
         .nav-links-cell a {
@@ -92,30 +81,47 @@
             border-right: 2px solid #5b2c83;
             display: inline-block;
             line-height: 22px;
-        }
-
-        .search-cell {
-            width: 200px;
-            text-align: right;
-            padding-right: 15px;
-        }
-
-        .search-cell input[type="text"] {
-            padding: 2px 5px;
-            border: 1px solid #ccc;
-            width: 120px;
-            height: 22px;
-            background-color: #fff;
             vertical-align: middle;
         }
 
-        .search-cell button {
+        .nav-home-icon {
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 20px;
+            vertical-align: middle;
+        }
+
+        .nav-home-icon img {
+            height: 20px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .search-box {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 20px;
+        }
+
+        .search-box input[type="text"] {
+            padding: 2px 5px;
+            border: 1px solid #ccc;
+            width: 150px;
+            height: 22px;
+            background-color: #fff;
+            vertical-align: middle;
+            box-sizing: border-box;
+        }
+
+        .search-box button {
             height: 22px;
             padding: 0 8px;
             background-color: #efefef;
             border: 1px solid #767676;
             font-size: 11px;
             vertical-align: middle;
+            margin-left: 4px;
+            box-sizing: border-box;
         }
 
         .layout-table {
@@ -349,17 +355,17 @@
     <nav>
         <table class="nav-table">
             <tr>
-                <td class="nav-home-cell">
-                    <a href="#"><img src="icons8-home-50.png" alt="Home"></a>
-                </td>
                 <td class="nav-links-cell">
+                    <span class="nav-home-icon">
+                        <a href="#"><img src="icons8-home-50.png" alt="Home"></a>
+                    </span>
                     <a href="#starter">STARTER</a>
                     <a href="#main">MAIN COURSES</a>
                     <a href="#desserts">DESSERTS</a>
-                </td>
-                <td class="search-cell">
-                    <input type="text">
-                    <button>Go</button>
+                    <div class="search-box">
+                        <input type="text">
+                        <button>Go</button>
+                    </div>
                 </td>
             </tr>
         </table>
